@@ -140,7 +140,7 @@ public class AppRunner implements ApplicationRunner {
         calendar.add(Calendar.DAY_OF_MONTH, 14);
         borrowing.setDueDate(new Timestamp(calendar.getTimeInMillis()));
 
-        borrowing.setStatus(Borrowing.Status.BORROWED);
+        borrowing.setStatus(Status.BORROWED);
 
         // Ενημερώνουμε τα διαθέσιμα αντίτυπα
         book.setAvailableCopies(book.getAvailableCopies() - 1);

@@ -3,6 +3,7 @@ package com.library.management;
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
 
+import java.sql.Timestamp;
 import java.time.Instant;
 
 @Entity
@@ -23,10 +24,10 @@ public class Borrowing {
 
     @ColumnDefault("CURRENT_TIMESTAMP")
     @Column(name = "borrow_date", nullable = false)
-    private Instant borrowDate;
+    private Timestamp borrowDate;
 
     @Column(name = "due_date", nullable = false)
-    private Instant dueDate;
+    private Timestamp dueDate;
 
     @Column(name = "return_date")
     private Instant returnDate;
@@ -63,19 +64,19 @@ public class Borrowing {
         this.book = book;
     }
 
-    public Instant getBorrowDate() {
+    public Timestamp getBorrowDate() {
         return borrowDate;
     }
 
-    public void setBorrowDate(Instant borrowDate) {
+    public void setBorrowDate(Timestamp borrowDate) {
         this.borrowDate = borrowDate;
     }
 
-    public Instant getDueDate() {
+    public Timestamp getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Instant dueDate) {
+    public void setDueDate(Timestamp dueDate) {
         this.dueDate = dueDate;
     }
 
