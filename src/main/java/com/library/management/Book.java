@@ -28,7 +28,7 @@ public class Book {
     private String genre;
 
     @Lob
-    @Column(name = "summary")
+    @Column(columnDefinition = "text")
     private String summary;
 
     @Column(name = "cover_image_url")

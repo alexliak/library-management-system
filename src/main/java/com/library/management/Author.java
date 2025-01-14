@@ -17,7 +17,7 @@ public class Author {
     private String name;
 
     @Lob
-    @Column(name = "bio")
+    @Column(columnDefinition = "text")
     private String bio;
 
     @ManyToMany

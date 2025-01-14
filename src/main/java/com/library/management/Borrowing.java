@@ -31,10 +31,13 @@ public class Borrowing {
     @Column(name = "return_date")
     private Instant returnDate;
 
-    @ColumnDefault("'BORROWED'")
-    @Lob
+    @Enumerated(EnumType.STRING) // Χρησιμοποιούμε EnumType.STRING αντί για @Lob
     @Column(name = "status", nullable = false)
-    private String status;
+    private Status status;
+
+    public enum Status {
+        BORROWED, RETURNED, OVERDUE
+    }
 
     public Long getId() {
         return id;
@@ -84,12 +87,11 @@ public class Borrowing {
         this.returnDate = returnDate;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
-
 }

@@ -24,9 +24,9 @@ public class User {
     @Column(name = "email", nullable = false, length = 100)
     private String email;
 
-    @Lob
+    @Enumerated(EnumType.STRING)  // ✅ Χρησιμοποιούμε EnumType.STRING αντί για @Lob
     @Column(name = "role", nullable = false)
-    private String role;
+    private Role role;
 
     @ColumnDefault("CURRENT_TIMESTAMP")
     @Column(name = "created_at")
@@ -34,6 +34,10 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private Set<Borrowing> borrowings = new LinkedHashSet<>();
+
+    public enum Role {
+        ADMIN, LIBRARIAN, MEMBER
+    }
 
     public Long getId() {
         return id;
@@ -67,11 +71,11 @@ public class User {
         this.email = email;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
